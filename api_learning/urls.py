@@ -5,5 +5,5 @@ from .views import ArticleAPI
 
 urlpatterns = [
     path("", views.hello, name="index"),
-    path("api/articles/", ArticleAPI.as_view(), name="articles"),
+    path("articles/", ArticleAPI.as_view(), name="articles"),
 ]

@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api_learning.models import Article
-from api_learning.serializers import ArticlesSerializer, ArticleSerializer
+from api_learning.serializers import ListArticleSerializer, ArticleSerializer
 
 
 @api_view(["GET"])
@@ -22,9 +22,9 @@ class ArticleAPI(APIView):
                 article = Article.objects.get(id=id)
                 serializer = ArticleSerializer(instance=article)
         except:
-            articles = Article.objects.all().values()
-            serializer = ArticlesSerializer(instance=articles, many=True)
+            articles = Article.objects.all()
+            serializer = ListArticleSerializer(instance=articles, many=True)
 
         data = serializer.data
 
-        return Response(data={"article": data}, status=status.HTTP_200_OK)
+        return Response(data=data, status=status.HTTP_200_OK)

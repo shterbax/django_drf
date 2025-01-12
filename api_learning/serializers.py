@@ -3,7 +3,7 @@ from rest_framework import serializers
 from api_learning.models import Article
 
 
-class ArticlesSerializer(serializers.ModelSerializer):
+class ListArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
